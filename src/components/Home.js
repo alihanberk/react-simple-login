@@ -37,12 +37,12 @@ class Home extends Component {
   }
 
   //For without Redux & Actions
-  // handleAxiosSubmit = () => {
-  //   this.setState({ sending: true })
-  //   axios.post('https://5d09f5bbc5896f0014e865ee.mockapi.io/login', this.state.data)
-  //     .then(response => this.setState({ response: response.data }))
-  //     .finally(() => this.setState({ sending: false }))
-  // }
+  handleAxiosSubmit = () => {
+    this.setState({ sending: true })
+    axios.post('https://5d09f5bbc5896f0014e865ee.mockapi.io/login', this.state.data)
+      .then(response => this.setState({ response: response.data }))
+      .finally(() => this.setState({ sending: false }))
+  }
 
 
   render() {
@@ -76,7 +76,7 @@ class Home extends Component {
                   <Button block type="danger" onClick={this.clear}> Temizle </Button>
                 </Col>
                 <Col span={12} className="p-5">
-                  <Button loading={sending} block onClick={this.handleAxiosSubmit}> Gönder </Button>
+                  <Button loading={sending} block onClick={this.handleSubmit}> Gönder </Button>
                 </Col>
               </Row>
             </div>
