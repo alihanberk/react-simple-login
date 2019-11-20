@@ -1,0 +1,1 @@
+export const ADD_GLOBAL_DATA = 'ADD_GLOBAL_DATA';

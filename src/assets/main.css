@@ -1,0 +1,29 @@
+body {
+  background: #ECE9E6;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(45deg, #FFFFFF, #ECE9E6);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(45deg, #FFFFFF, #ECE9E6);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.form-container {
+  margin: 100px auto;
+}
+.form-wrapper {
+  box-shadow: 0px 2px 8px #ddd;
+  border-radius: 4px;
+  padding: 40px;
+  background: #fff;
+}
+.ant-input-affix-wrapper {
+  margin: 4px 0;
+}
+.text-center {
+  text-align: center;
+}
+.ant-btn {
+  box-sizing: border-box;
+}
+.p-5 {
+  padding: 12px 0;
+}
