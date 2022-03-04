@@ -30,7 +30,7 @@ class Home extends Component {
     this.setState({ sending: true })
     let endpoint = { keyOne: api };
     this.props.dispatch(actions.global.addData({
-      data: this.state.data,
+      data: { ...this.state.data, key: 'value' },
       key: 'login',
       ...endpoint
     }))
@@ -77,7 +77,7 @@ class Home extends Component {
                   <Button block type="danger" onClick={this.clear}> Temizle </Button>
                 </Col>
                 <Col span={12} className="p-5">
-                  <Button loading={sending} block onClick={this.handleAxiosSubmit}> Gönder </Button>
+                  <Button loading={sending} block onClick={this.handleSubmit}> Gönder </Button>
                 </Col>
               </Row>
             </div>
