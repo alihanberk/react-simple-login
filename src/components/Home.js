@@ -6,6 +6,7 @@ import axios from 'axios';
 import { loginModel } from '../helpers'
 
 
+const api = "https://6222732e666291106a26be5d.mockapi.io/api/login";
 
 class Home extends Component {
   state = {
@@ -20,14 +21,14 @@ class Home extends Component {
     this.setState({ data })
   }
   clear = () => {
-    let _data = { data: new loginModel()}
+    let _data = { data: new loginModel() }
     this.setState({ ..._data })
   }
 
   //For with Redux & Actions
   handleSubmit = () => {
     this.setState({ sending: true })
-    let endpoint = { keyOne: 'https://5d09f5bbc5896f0014e865ee.mockapi.io/login' };
+    let endpoint = { keyOne: api };
     this.props.dispatch(actions.global.addData({
       data: this.state.data,
       key: 'login',
@@ -39,7 +40,7 @@ class Home extends Component {
   //For without Redux & Actions
   handleAxiosSubmit = () => {
     this.setState({ sending: true })
-    axios.post('https://5d09f5bbc5896f0014e865ee.mockapi.io/login', this.state.data)
+    axios.post(api, this.state.data)
       .then(response => this.setState({ response: response.data }))
       .finally(() => this.setState({ sending: false }))
   }
@@ -76,7 +77,7 @@ class Home extends Component {
                   <Button block type="danger" onClick={this.clear}> Temizle </Button>
                 </Col>
                 <Col span={12} className="p-5">
-                  <Button loading={sending} block onClick={this.handleSubmit}> Gönder </Button>
+                  <Button loading={sending} block onClick={this.handleAxiosSubmit}> Gönder </Button>
                 </Col>
               </Row>
             </div>
@@ -86,8 +87,8 @@ class Home extends Component {
           <Col span={8} offset={8}>
             <h2 className="text-center">
               {
-                (login || response) &&
-                JSON.stringify(login || response)
+                (login || response) &&
+                JSON.stringify(login || response)
               }
             </h2>
           </Col>
