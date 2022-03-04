@@ -40,7 +40,7 @@ class Home extends Component {
   //For without Redux & Actions
   handleAxiosSubmit = () => {
     this.setState({ sending: true })
-    axios.post(api, this.state.data)
+    axios.post(api, this.state.data, { headers: { "some-header": 'headerdır' } })
       .then(response => this.setState({ response: response.data }))
       .finally(() => this.setState({ sending: false }))
   }
@@ -77,7 +77,7 @@ class Home extends Component {
                   <Button block type="danger" onClick={this.clear}> Temizle </Button>
                 </Col>
                 <Col span={12} className="p-5">
-                  <Button loading={sending} block onClick={this.handleSubmit}> Gönder </Button>
+                  <Button loading={sending} block onClick={this.handleAxiosSubmit}> Gönder </Button>
                 </Col>
               </Row>
             </div>
